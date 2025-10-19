@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dihhykgbd3a04"]
+
+[ext_resource type="PackedScene" uid="uid://cmj0yjv1e4igm" path="res://scenes/player.tscn" id="1_gi7kc"]
+[ext_resource type="PackedScene" uid="uid://rogru2hpbgq2" path="res://scenes/map.tscn" id="2_kewym"]
+[ext_resource type="Script" uid="uid://bmdgliisg3yoa" path="res://scripts/player.gd" id="3_kewym"]
+[ext_resource type="PackedScene" uid="uid://d131j58egtxe" path="res://scenes/camera.tscn" id="4_6c5u0"]
+
+[node name="Stage" type="Node2D"]
+position = Vector2(-224, -52)
+
+[node name="Map" parent="." instance=ExtResource("2_kewym")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_gi7kc")]
+position = Vector2(403, 346)
+script = ExtResource("3_kewym")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_6c5u0")]
+position = Vector2(676, 352)
