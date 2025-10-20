@@ -1,27 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dihhykgbd3a04"]
+[gd_scene load_steps=5 format=3 uid="uid://dihhykgbd3a04"]
 
 [ext_resource type="PackedScene" uid="uid://cmj0yjv1e4igm" path="res://scenes/player.tscn" id="1_gi7kc"]
-[ext_resource type="Script" uid="uid://cwawnl2ntv60b" path="res://scripts/stage.gd" id="1_st0q7"]
 [ext_resource type="PackedScene" uid="uid://rogru2hpbgq2" path="res://scenes/map.tscn" id="2_kewym"]
 [ext_resource type="Script" uid="uid://bmdgliisg3yoa" path="res://scripts/player.gd" id="3_kewym"]
 [ext_resource type="PackedScene" uid="uid://d131j58egtxe" path="res://scenes/camera.tscn" id="4_6c5u0"]
-[ext_resource type="PackedScene" uid="uid://c3xdonpw058ju" path="res://scenes/trampoline.tscn" id="5_2so7o"]
-[ext_resource type="Script" uid="uid://cw46kb5i17bi5" path="res://scripts/trampoline.gd" id="6_st0q7"]
 
 [node name="Stage" type="Node2D"]
 position = Vector2(-224, -52)
-script = ExtResource("1_st0q7")
 
 [node name="Map" parent="." instance=ExtResource("2_kewym")]
 
-[node name="Trampoline" parent="." instance=ExtResource("5_2so7o")]
-position = Vector2(1044, 608)
-script = ExtResource("6_st0q7")
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_gi7kc")]
-position = Vector2(418, 346)
-collision_layer = 9
-collision_mask = 9
+position = Vector2(403, 346)
+collision_mask = 3
 script = ExtResource("3_kewym")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_6c5u0")]

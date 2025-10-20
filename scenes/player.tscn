@@ -1,12 +1,80 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmj0yjv1e4igm"]
+[gd_scene load_steps=21 format=3 uid="uid://cmj0yjv1e4igm"]
 
 [ext_resource type="Texture2D" uid="uid://cwelcuexi7fdd" path="res://assets/Characters/Players/Fiery Imp/idle/Sprites/idle-1.png" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://diov16py8hky" path="res://assets/Characters/Players/Fiery Imp/idle/Sprites/idle-2.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dhe7lq5w8js1u" path="res://assets/Characters/Players/Fiery Imp/idle/Sprites/idle-3.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cmpbwflms2m2y" path="res://assets/Characters/Players/Fiery Imp/idle/Sprites/idle-4.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://v3se8t2jsoip" path="res://assets/Characters/Players/Fiery Imp/run/run-preview.png" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://n51qge0lctwe" path="res://assets/Characters/Players/Fiery Imp/jump/jump-preview.png" id="5_tuyoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(102, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(153, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(204, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(0, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(51, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(0, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(51, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(102, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(153, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(204, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(255, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(306, 0, 51, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("5_qlg0r")
+region = Rect2(357, 0, 51, 45)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}],
+"loop": true,
+"name": &"FALL",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_dqkch")
@@ -21,8 +89,48 @@ animations = [{
 "texture": ExtResource("4_fjrip")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"IDLE",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}],
+"loop": false,
+"name": &"JUMP",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}],
+"loop": true,
+"name": &"RUN",
+"speed": 10.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -32,8 +140,15 @@ position = Vector2(88, 34)
 position = Vector2(0, -0.25)
 scale = Vector2(1, 0.988889)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
-autoplay = "default"
+animation = &"JUMP"
+autoplay = "IDLE"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, 8.5)
+polygon = PackedVector2Array(-12.5, -0.5, -9.5, 11.5, -10.5, 13.5, 10.5, 13.5, 7.5, 7.5, 8.5, 1.5, 8.5, -4.5, 4.5, -10.5, 2.5, -13.5, -2.5, -13.5, -5.5, -9.5, -6.5, -7.5, -9.5, -8.5, -9.5, -6.5, -9.5, -1.5)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hurtbox"]
 position = Vector2(0.5, 8.5)
 polygon = PackedVector2Array(-12.5, -0.5, -9.5, 11.5, -10.5, 13.5, 10.5, 13.5, 7.5, 7.5, 8.5, 1.5, 8.5, -4.5, 4.5, -10.5, 2.5, -13.5, -2.5, -13.5, -5.5, -9.5, -6.5, -7.5, -9.5, -8.5, -9.5, -6.5, -9.5, -1.5)

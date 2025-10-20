@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3xdonpw058ju"]
+
+[ext_resource type="Texture2D" uid="uid://bugm388yvata8" path="res://assets/trampolin.png" id="1_2yctu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xptw"]
+size = Vector2(24, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ne3y"]
+atlas = ExtResource("1_2yctu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nytqh"]
+atlas = ExtResource("1_2yctu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yctu"]
+atlas = ExtResource("1_2yctu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gay0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ne3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nytqh")
+}],
+"loop": false,
+"name": &"BOUNCE",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yctu")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yctu"]
+size = Vector2(24, 1.9375)
+
+[node name="Trampoline" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_4xptw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Platform/CollisionShape2D"]
+position = Vector2(-3, 6)
+sprite_frames = SubResource("SpriteFrames_5gay0")
+animation = &"IDLE"
+
+[node name="Trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_2yctu")

@@ -15,10 +15,18 @@ run/main_scene="uid://dihhykgbd3a04"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Functionalities="*res://scripts/funcionalities.gd"
+
 [display]
 
 window/size/viewport_width=900
 window/size/viewport_height=600
+
+[global_group]
+
+pikes=""
 
 [rendering]
 
